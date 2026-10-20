@@ -8,9 +8,21 @@ export const createSettingsSlice: StateCreator<AppState, [], [], SettingsSlice> 
   crtFilterEnabled: true,
   audioEnabled: true,
   audioVolume: 0.7,
+  globeAutoRotate: true,
   activeView: "COMMAND_CORE",
   commandPaletteOpen: false,
   settingsOpen: false,
+
+  setGlobeAutoRotate: (enabled: boolean) => {
+    set({ globeAutoRotate: enabled });
+  },
+
+  toggleGlobeAutoRotate: () => {
+    AudioManager.playKeyClick();
+    const next = !get().globeAutoRotate;
+    set({ globeAutoRotate: next });
+    get().addLog("SYSTEM", `World Globe auto-rotation orbit: ${next ? "ACTIVE" : "PAUSED"}`, "info");
+  },
 
   setTheme: (theme: ThemePreset) => {
     set({ theme });

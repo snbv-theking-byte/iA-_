@@ -162,6 +162,23 @@ export const SovereignDrive: React.FC = () => {
         store.addLog("SYSTEM", `Google Drive successfully authenticated for [${result.user.email}]`, "sovereign");
       }
     } catch (err: any) {
+      const errorCode = err?.code || '';
+      const errorMessage = err?.message || '';
+      if (
+        errorCode === 'auth/popup-closed-by-user' ||
+        errorCode === 'auth/cancelled-popup-request' ||
+        errorMessage.includes('popup-closed-by-user') ||
+        errorMessage.includes('cancelled-popup-request')
+      ) {
+        // User closed or cancelled popup - do not log as an application crash/error
+        return;
+      }
+      if (errorCode === 'auth/popup-blocked') {
+        const popupMsg = 'Sign-in popup was blocked by browser. Please allow popups for this site and try again.';
+        setAuthError(popupMsg);
+        showToast(popupMsg, 'info');
+        return;
+      }
       console.error('Sign-in error:', err);
       setAuthError(err.message || 'Authentication with Google failed. Please verify credentials.');
       showToast('Sign-in failed', 'error');

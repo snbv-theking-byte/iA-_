@@ -46,6 +46,9 @@ export const useCommandStore = () => {
     setCommandPaletteOpen: store.setCommandPaletteOpen,
     settingsOpen: store.settingsOpen,
     setSettingsOpen: store.setSettingsOpen,
+    globeAutoRotate: store.globeAutoRotate,
+    setGlobeAutoRotate: store.setGlobeAutoRotate,
+    toggleGlobeAutoRotate: store.toggleGlobeAutoRotate,
 
     // Mukaab & Pulse
     coreStatus: store.coreStatus,

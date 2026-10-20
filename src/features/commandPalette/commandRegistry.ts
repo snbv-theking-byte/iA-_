@@ -248,6 +248,15 @@ export function getCommands(): Command[] {
         store.setActiveView("STRATEGIC_MAP");
         audioEngine.play("blip", store.audioEnabled);
       }
+    },
+    {
+      id: "world-toggle-auto-rotate",
+      title: "World Globe: Toggle Auto-Rotation Orbit",
+      category: "world",
+      execute() {
+        store.toggleGlobeAutoRotate();
+        audioEngine.play("blip", store.audioEnabled);
+      }
     }
   ];
 }

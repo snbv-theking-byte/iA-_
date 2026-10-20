@@ -63,6 +63,9 @@ export interface SettingsSlice {
   toggleAudio: () => void;
   audioVolume: number;
   setAudioVolume: (volume: number) => void;
+  globeAutoRotate: boolean;
+  setGlobeAutoRotate: (enabled: boolean) => void;
+  toggleGlobeAutoRotate: () => void;
   activeView: ModuleView;
   setActiveView: (view: ModuleView) => void;
   commandPaletteOpen: boolean;

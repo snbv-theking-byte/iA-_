@@ -26,6 +26,7 @@ export const useAppStore = create<AppState>()(
         crtFilterEnabled: state.crtFilterEnabled,
         audioEnabled: state.audioEnabled,
         audioVolume: state.audioVolume,
+        globeAutoRotate: state.globeAutoRotate,
         selectedNode: state.selectedNode,
         selectedNodeId: state.selectedNodeId,
         selectedTotemId: state.selectedTotemId,

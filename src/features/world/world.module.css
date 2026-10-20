@@ -154,3 +154,54 @@
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
+
+.autoRotateButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.autoRotateButton:hover {
+  background: rgba(223, 177, 91, 0.15);
+  border-color: rgba(223, 177, 91, 0.4);
+  color: #ffd978;
+}
+
+.autoRotateActive {
+  background: rgba(223, 177, 91, 0.15);
+  color: #ffd978;
+  border-color: rgba(223, 177, 91, 0.5);
+  box-shadow: 0 0 10px rgba(223, 177, 91, 0.2);
+}
+
+.autoRotateIcon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.iconSpinning {
+  animation: spinSlow 6s linear infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

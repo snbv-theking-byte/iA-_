@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { RotateCw } from "lucide-react";
 import { GlobeScene } from "./GlobeScene";
 import { useAppStore } from "../../store/useAppStore";
 import { WORLD_NODES } from "./worldUtils";
@@ -10,6 +11,8 @@ import styles from "./world.module.css";
 export default function WorldGlobe() {
   const selectedNodeId = useAppStore((state) => state.selectedNodeId);
   const setSelectedNodeId = useAppStore((state) => state.setSelectedNodeId);
+  const globeAutoRotate = useAppStore((state) => state.globeAutoRotate);
+  const toggleGlobeAutoRotate = useAppStore((state) => state.toggleGlobeAutoRotate);
 
   const selectedNode = WORLD_NODES.find((node) => node.id === selectedNodeId) ?? null;
 
@@ -36,6 +39,19 @@ export default function WorldGlobe() {
               ? `${selectedNode.name} [${selectedNode.latitude.toFixed(2)}°, ${selectedNode.longitude.toFixed(2)}°]`
               : "GLOBAL ORBITAL GRID"}
           </span>
+
+          {/* User-toggleable 'AUTO_ROTATE' setting */}
+          <button
+            type="button"
+            onClick={toggleGlobeAutoRotate}
+            className={`${styles.autoRotateButton} ${globeAutoRotate ? styles.autoRotateActive : ''}`}
+            title={globeAutoRotate ? "Pause camera orbit auto-rotation" : "Enable camera orbit auto-rotation"}
+            aria-pressed={globeAutoRotate}
+          >
+            <RotateCw className={`${styles.autoRotateIcon} ${globeAutoRotate ? styles.iconSpinning : ''}`} />
+            <span>AUTO_ROTATE: {globeAutoRotate ? 'ON' : 'OFF'}</span>
+          </button>
+
           <span className={styles.activeTag}>3D ACTIVE</span>
         </div>
       </div>
