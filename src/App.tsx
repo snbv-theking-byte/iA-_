@@ -23,6 +23,7 @@ import { CRTOverlay } from './features/settings/CRTOverlay';
 import { useThemeSync } from './features/settings/useThemeSync';
 import { useAudioSync } from './features/audio/useAudioSync';
 import { NotificationCenter } from './features/hud';
+import { WorldGlobe } from './features/world';
 import { PHI } from './types';
 
 export default function App() {
@@ -53,6 +54,12 @@ export default function App() {
         return <MukaabScene />;
       case 'STRATEGIC_RADAR':
         return <StrategicRadar />;
+      case 'WORLD_GLOBE':
+        return (
+          <div className="h-[calc(100vh-140px)] w-full p-2">
+            <WorldGlobe />
+          </div>
+        );
       case 'BIOSCIENCE_STRUCTURES':
         return <ProteinStructureViewer />;
       case 'CHEMICAL_DEFENSE':

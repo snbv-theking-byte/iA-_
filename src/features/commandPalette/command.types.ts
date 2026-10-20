@@ -1,4 +1,4 @@
-export type CommandCategory = "system" | "radar" | "mukaab" | "settings" | "bioscience";
+export type CommandCategory = "system" | "radar" | "world" | "mukaab" | "settings" | "bioscience";
 
 export interface Command {
   id: string;

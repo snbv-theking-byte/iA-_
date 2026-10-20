@@ -27,6 +27,7 @@ export const useAppStore = create<AppState>()(
         audioEnabled: state.audioEnabled,
         audioVolume: state.audioVolume,
         selectedNode: state.selectedNode,
+        selectedNodeId: state.selectedNodeId,
         selectedTotemId: state.selectedTotemId,
         selectedProteinAccession: state.selectedProteinAccession,
       }),

@@ -155,6 +155,52 @@ export function getCommands(): Command[] {
         store.setActiveView("BIOSCIENCE_STRUCTURES");
         audioEngine.play("confirm", store.audioEnabled);
       }
+    },
+    {
+      id: "nav-globe",
+      title: "Navigate to 3D Sovereign World Globe",
+      shortcut: "Ctrl+G",
+      category: "world",
+      execute() {
+        store.setActiveView("WORLD_GLOBE");
+        audioEngine.play("blip", store.audioEnabled);
+      }
+    },
+    {
+      id: "globe-focus-riyadh",
+      title: "Globe: Focus Riyadh Sovereign Core",
+      category: "world",
+      execute() {
+        store.setSelectedNodeId("riyadh");
+        audioEngine.play("confirm", store.audioEnabled);
+      }
+    },
+    {
+      id: "globe-focus-cairo",
+      title: "Globe: Focus Cairo Relay Array",
+      category: "world",
+      execute() {
+        store.setSelectedNodeId("cairo");
+        audioEngine.play("confirm", store.audioEnabled);
+      }
+    },
+    {
+      id: "globe-focus-london",
+      title: "Globe: Focus London Observer",
+      category: "world",
+      execute() {
+        store.setSelectedNodeId("london");
+        audioEngine.play("confirm", store.audioEnabled);
+      }
+    },
+    {
+      id: "globe-focus-vatican",
+      title: "Globe: Focus Vatican Observatory",
+      category: "world",
+      execute() {
+        store.setSelectedNodeId("vatican");
+        audioEngine.play("warning", store.audioEnabled);
+      }
     }
   ];
 }

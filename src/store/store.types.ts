@@ -23,7 +23,9 @@ export interface TelemetryEvent {
 
 export interface RadarSlice {
   selectedNode: RadarNode | null;
+  selectedNodeId: string | null;
   setSelectedNode: (node: RadarNode | null) => void;
+  setSelectedNodeId: (id: string | null) => void;
   radarNodes: RadarNode[];
   isRadarPaused: boolean;
   toggleRadarPause: () => void;

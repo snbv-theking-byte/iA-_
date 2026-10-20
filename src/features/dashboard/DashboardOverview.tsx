@@ -2,6 +2,7 @@ import React from 'react';
 import { useCommandStore } from '../../store/useCommandStore';
 import { MetricCounters } from './MetricCounters';
 import { MukaabScene } from '../mukaab/MukaabScene';
+import { WorldGlobeWidget } from './WorldGlobeWidget';
 import { AudioManager } from '../../systems/AudioManager';
 import { PHI } from '../../types';
 import { 
@@ -38,6 +39,11 @@ export const DashboardOverview: React.FC = () => {
       {/* 2. Main Visual Centerpiece: 3D Mukaab Scene */}
       <div className="relative">
         <MukaabScene />
+      </div>
+
+      {/* 3. Global Geospatial Telemetry: 3D World Globe Widget */}
+      <div className="relative">
+        <WorldGlobeWidget />
       </div>
 
       {/* 3. Dual Tactical Modules: Radar & Bioscience Intelligence */}
