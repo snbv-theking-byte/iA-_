@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold: #dfb15b;
+    --gold-bright: #ffd978;
+    --cyan: #00f0ff;
+    --crimson: #ff3366;
+    --yellow: #ffe600;
+    --bg-core: #07090e;
+    --phi: 1.61803398875;
+  }
+
+  body {
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #07090e;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-sovereign {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Custom Scanlines & CRT simulation */
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 9999;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.crt-vignette::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Custom scrollbars for military terminal feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(7, 9, 14, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(223, 177, 91, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(223, 177, 91, 0.6);
+}
+
+/* Glassmorphism sovereign panels */
+.glass-panel {
+  background: rgba(10, 15, 26, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(223, 177, 91, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-cyan {
+  background: rgba(7, 16, 28, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.05);
+}
+
+.glass-panel-crimson {
+  background: rgba(22, 10, 16, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 51, 102, 0.22);
+  box-shadow: 0 8px 32px 0 rgba(255, 51, 102, 0.05);
+}
+
+/* Glowing text effects */
+.glow-gold {
+  text-shadow: 0 0 12px rgba(223, 177, 91, 0.6);
+}
+
+.glow-cyan {
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+.glow-crimson {
+  text-shadow: 0 0 12px rgba(255, 51, 102, 0.6);
+}
+
+/* HUD corner brackets */
+.hud-corner-bracket {
+  position: relative;
+}
+.hud-corner-bracket::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #dfb15b;
+  border-left: 2px solid #dfb15b;
+  pointer-events: none;
+}
+.hud-corner-bracket::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #dfb15b;
+  border-right: 2px solid #dfb15b;
+  pointer-events: none;
+}

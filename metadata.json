@@ -1,0 +1,8 @@
+{
+  "name": "KINGDOM OF MURABBA™ | SNBV™ COMMAND CORE & BIOSCIENCE DIVISION",
+  "description": "Futuristic sovereign command-and-control platform and bioscience telemetry center integrating AlphaFold 3D protein structures, PubChem countermeasure intelligence, real-time radar, totemic network, and Web Audio synthesis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

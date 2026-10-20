@@ -1,0 +1,196 @@
+.toastContainer {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.75rem;
+  z-index: 9999;
+  max-width: 24rem;
+  width: 100%;
+  pointer-events: none;
+}
+
+.toastItem {
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(7, 9, 14, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-primary, rgba(223, 177, 91, 0.3));
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 0, 0, 0.4);
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 0.2s ease;
+  font-family: 'JetBrains Mono', monospace, ui-monospace;
+}
+
+.toastItem:hover {
+  transform: translateX(-4px);
+  border-color: var(--accent-bright, #ffd978);
+}
+
+.toastInfo {
+  border-left: 3px solid var(--accent-cyan, #00f0ff);
+}
+
+.toastWarning {
+  border-left: 3px solid var(--accent-bright, #ffd978);
+}
+
+.toastCritical {
+  border-left: 3px solid var(--accent-crimson, #ff3366);
+}
+
+.toastIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.toastBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.toastHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.toastTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary, #f0f6fc);
+}
+
+.toastTime {
+  font-size: 0.65rem;
+  color: var(--text-muted, #8b949e);
+}
+
+.toastMessage {
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.toastClose {
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #8b949e);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: color 0.15s ease;
+}
+
+.toastClose:hover {
+  color: var(--text-primary, #f0f6fc);
+}
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent-primary, #dfb15b);
+  animation: progressDrain linear forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes progressDrain {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* HUD Metric Bar Styling */
+.hudBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.hudCard {
+  background: rgba(7, 9, 14, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-primary, rgba(223, 177, 91, 0.25));
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.hudCard:hover {
+  border-color: var(--accent-bright, #ffd978);
+  box-shadow: 0 0 15px rgba(223, 177, 91, 0.15);
+}
+
+.hudCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted, #8b949e);
+  margin-bottom: 0.35rem;
+  font-family: 'JetBrains Mono', monospace, ui-monospace;
+}
+
+.hudCardValue {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace, ui-monospace;
+  color: var(--text-primary, #f0f6fc);
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.hudCardSub {
+  font-size: 0.65rem;
+  color: var(--text-muted, #8b949e);
+  font-weight: normal;
+}
+
+.cornerAccent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 12px 0;
+  border-color: transparent var(--accent-primary, #dfb15b) transparent transparent;
+}
