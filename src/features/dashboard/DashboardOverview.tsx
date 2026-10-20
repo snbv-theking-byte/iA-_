@@ -3,6 +3,8 @@ import { useCommandStore } from '../../store/useCommandStore';
 import { MetricCounters } from './MetricCounters';
 import { MukaabScene } from '../mukaab/MukaabScene';
 import { WorldGlobeWidget } from './WorldGlobeWidget';
+import { DriveWidget } from './DriveWidget';
+import { StrategicMapWidget } from '../maps/StrategicMapWidget';
 import { AudioManager } from '../../systems/AudioManager';
 import { PHI } from '../../types';
 import { 
@@ -161,7 +163,13 @@ export const DashboardOverview: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Totemic Network Strip */}
+      {/* 4. Strategic Geolocation (Google Maps) & Sovereign Cloud Storage */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <StrategicMapWidget />
+        <DriveWidget />
+      </div>
+
+      {/* 5. Totemic Network Strip */}
       <div className="glass-panel rounded-xl p-5 border border-[#dfb15b]/30 shadow-xl">
         <div className="flex items-center justify-between pb-3 border-b border-slate-800">
           <div className="flex items-center space-x-2">

@@ -201,6 +201,53 @@ export function getCommands(): Command[] {
         store.setSelectedNodeId("vatican");
         audioEngine.play("warning", store.audioEnabled);
       }
+    },
+    {
+      id: "nav-drive",
+      title: "Navigate to Sovereign Google Drive Vault",
+      shortcut: "Ctrl+D",
+      category: "drive",
+      execute() {
+        store.setActiveView("SOVEREIGN_DRIVE");
+        audioEngine.play("blip", store.audioEnabled);
+      }
+    },
+    {
+      id: "drive-export-intel",
+      title: "Google Drive: Export Sovereign Mission Telemetry",
+      category: "drive",
+      execute() {
+        store.setActiveView("SOVEREIGN_DRIVE");
+        audioEngine.play("confirm", store.audioEnabled);
+      }
+    },
+    {
+      id: "nav-strategic-map",
+      title: "Navigate to Google Maps Tactical Geo-Theater",
+      shortcut: "Ctrl+M",
+      category: "map",
+      execute() {
+        store.setActiveView("STRATEGIC_MAP");
+        audioEngine.play("blip", store.audioEnabled);
+      }
+    },
+    {
+      id: "map-focus-mukaab",
+      title: "Tactical Map: Center New Murabba Mukaab Nexus",
+      category: "map",
+      execute() {
+        store.setActiveView("STRATEGIC_MAP");
+        audioEngine.play("blip", store.audioEnabled);
+      }
+    },
+    {
+      id: "map-focus-riyadh",
+      title: "Tactical Map: Center Riyadh Sovereign Core HQ",
+      category: "map",
+      execute() {
+        store.setActiveView("STRATEGIC_MAP");
+        audioEngine.play("blip", store.audioEnabled);
+      }
     }
   ];
 }

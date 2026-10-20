@@ -24,6 +24,8 @@ import { useThemeSync } from './features/settings/useThemeSync';
 import { useAudioSync } from './features/audio/useAudioSync';
 import { NotificationCenter } from './features/hud';
 import { WorldGlobe } from './features/world';
+import { SovereignDrive } from './features/drive';
+import { TacticalMap } from './features/maps';
 import { PHI } from './types';
 
 export default function App() {
@@ -60,6 +62,14 @@ export default function App() {
             <WorldGlobe />
           </div>
         );
+      case 'STRATEGIC_MAP':
+        return (
+          <div className="h-[calc(100vh-140px)] w-full">
+            <TacticalMap />
+          </div>
+        );
+      case 'SOVEREIGN_DRIVE':
+        return <SovereignDrive />;
       case 'BIOSCIENCE_STRUCTURES':
         return <ProteinStructureViewer />;
       case 'CHEMICAL_DEFENSE':
